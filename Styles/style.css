@@ -1,0 +1,184 @@
+/*----------------CSS RESET--------------------- */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ------------------Main Styling Starts------------------- */
+
+body {
+  background-color: black;
+}
+
+.container {
+  width: min(90%, 600px);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+.title {
+  font-size: 4rem;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(
+    90deg,
+    rgb(69, 31, 183) 0%,
+    hsla(269, 97%, 37%, 1) 33%,
+    hsla(320, 77%, 55%, 1) 66%,
+    hsla(316, 41%, 93%, 1) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 500%;
+  animation: text 5s ease-in-out infinite forwards;
+  margin-top: 1.5rem;
+}
+
+@keyframes text {
+  0% {
+    background-size: 200%;
+  }
+  25% {
+    background-color: 100%;
+  }
+  50% {
+    background-size: 0%;
+  }
+  75% {
+    background-size: 100%;
+  }
+  100% {
+    background-size: 200%;
+  }
+}
+
+.timer-main-part {
+  font-size: 3rem;
+  color: white;
+}
+
+.millisecond {
+  font-size: 1.5rem;
+}
+
+.laps {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 60px repeat(2, 1fr);
+  gap: 0.5rem;
+  font-size: 1.3rem;
+  color: white;
+  max-height: 37vh;
+  place-items: center;
+  overflow-y: auto;
+}
+
+.laps::-webkit-scrollbar {
+  width: 5px;
+}
+.laps::-webkit-scrollbar-thumb {
+  background-color: rgb(82, 78, 78);
+}
+.laps::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.heading {
+  margin-bottom: 1.5rem;
+  color: pink;
+}
+.lapMilliSecond {
+  font-size: 1rem;
+}
+.lap {
+  margin-bottom: 1rem;
+}
+
+.buttons {
+  position: absolute;
+  bottom: 9vh;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.pause-image {
+  outline: 5px solid rgba(128, 128, 128, 0.682);
+  outline-offset: -5px;
+  border-radius: 50%;
+}
+
+.function-button {
+  width: 20%;
+  background-color: black;
+  border: none;
+  cursor: pointer;
+}
+
+.function-button:hover,
+.function-button:focus {
+  scale: 1.1;
+}
+
+.none {
+  display: none;
+}
+
+.effect {
+  position: absolute;
+  bottom: 50%;
+  transform: translateY(-50%);
+}
+
+@media (min-width: 50em) {
+  .timer-main-part {
+    font-size: 5rem;
+  }
+  .laps {
+    width: 100%;
+    gap: 0.5rem;
+    font-size: 2.5rem;
+  }
+  .lapMilliSecond {
+    font-size: 1.5rem;
+  }
+
+  .function-button {
+    width: 6rem;
+    margin-inline: 2rem;
+    aspect-ratio: 1;
+    background-color: black;
+  }
+}
+
+@media (max-width: 23.5em) {
+  body {
+    background-color: red;
+  }
+  .heading {
+    font-size: 1rem;
+  }
+  .laps {
+    font-size: 1rem;
+  }
+  .lapMilliSecond {
+    font-size: 0.8rem;
+  }
+}
